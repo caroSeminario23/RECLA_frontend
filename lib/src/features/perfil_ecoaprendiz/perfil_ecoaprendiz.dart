@@ -8,12 +8,12 @@ class PerfilEcoAprendizPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            //top bar
-            // Logo
+            // Espaciado superior
             SizedBox(height: 24),
+            // Imagen de perfil
             Image.asset(
               'assets/images/foto_perfil_ejemplo.png',
               width: 100,
@@ -22,19 +22,13 @@ class PerfilEcoAprendizPage extends StatelessWidget {
             // Nombre
             const Text(
               'Eliana Verde',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 12),
             // Distrito
             const Text(
               'Distrito: San Isidro',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 12),
             // Botones
@@ -44,14 +38,9 @@ class PerfilEcoAprendizPage extends StatelessWidget {
                 // Caja 1: Racha
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  /*decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(8),
-                  ),*/
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      //Icon(Icons.edit, color: Colors.blue),
                       Image.asset(
                         'assets/images/icono_racha.png',
                         width: 30,
@@ -62,15 +51,9 @@ class PerfilEcoAprendizPage extends StatelessWidget {
                     ],
                   ),
                 ),
-
                 // Caja 2: Experiencia
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  /*decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(8),
-                  ),*/
-
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -79,20 +62,14 @@ class PerfilEcoAprendizPage extends StatelessWidget {
                         width: 30,
                         height: 30,
                       ),
-                      //Icon(Icons.delete, color: Colors.red),
                       SizedBox(width: 2),
                       Text('150 EXP'),
                     ],
                   ),
                 ),
-
                 // Caja 3: Puntos
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  /*decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(8),
-                  ),*/
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -101,23 +78,84 @@ class PerfilEcoAprendizPage extends StatelessWidget {
                         width: 30,
                         height: 30,
                       ),
-                      //Icon(Icons.share, color: Colors.green),
                       SizedBox(width: 2),
                       Text('420 PTOS'),
                     ],
                   ),
                 ),
               ],
-            )
-
+            ),
           ],
         ),
       ),
-      
 
-
-
-
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AssetImage('assets/images/icono_ecommerce.png'),
+              width: 30,
+              height: 30,
+            ),
+            label: 'Tienda',
+          ),
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AssetImage('assets/images/icono_monedas.png'),
+              width: 30,
+              height: 30,
+            ),
+            label: 'Monedas',
+          ),
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AssetImage('assets/images/icono_medalla.png'),
+              width: 30,
+              height: 30,
+            ),
+            label: 'Logros',
+          ),
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AssetImage('assets/images/icono_chat.png'),
+              width: 30,
+              height: 30,
+            ),
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AssetImage('assets/images/icono_perfil.png'),
+              width: 30,
+              height: 30,
+            ),
+            label: 'Perfil',
+          ),
+        ],
+        currentIndex: 4,
+        type:
+            BottomNavigationBarType
+                .fixed, // para que no se centre el ítem seleccionado
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              Navigator.pushNamed(context, '/home');
+              break;
+            case 1:
+              Navigator.pushNamed(context, '/eco-aprender');
+              break;
+            case 2:
+              Navigator.pushNamed(context, '/logros');
+              break;
+            case 3:
+              Navigator.pushNamed(context, '/chat');
+              break;
+            case 4:
+              // Ya estás en perfil
+              break;
+          }
+        },
+      ),
     );
   }
 }
