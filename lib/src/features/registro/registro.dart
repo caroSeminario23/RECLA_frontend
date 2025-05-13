@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
 
 class RegistroPage extends StatefulWidget {
   @override
@@ -105,6 +106,13 @@ class _RegistroPageState extends State<RegistroPage> {
         'pass': _passCtrl.text,
       };
       print('Registro EcoAprendiz: $data');
+      // Navegar a la página de perfil Eco Aprendiz
+      Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PerfilEcoAprendizPage(),
+      ),
+    );
     } else {
       // Lógica de registro Aliado Verde
       final data = {
