@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/features/registro/registro.dart';
+//registo
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -6,6 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -17,7 +20,7 @@ class LoginScreen extends StatelessWidget {
               width: 100,
               height: 100,
             ),
-
+            
             //Texto de bienvenida
             const Text(
               'Bienvenido a RECLA',
@@ -26,52 +29,102 @@ class LoginScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-
+            SizedBox(height: 12), //Espacio entre el logo y el texto
             //Ingreso de email
-            TextField(
+            /*TextField(
               decoration: InputDecoration(
                 labelText: 'Correo electrónico',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.email),
               ),
+            ),*/
+
+            //Ingreso de email
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width - 32,
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Correo electrónico',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.email),
+                  ),
+                ),
+              )
             ),
+            SizedBox(height: 12),
 
             //Ingreso de contraseña
-            TextField(
+            /*TextField(
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Contraseña',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.lock),
               ),
+            ),*/
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width - 32,
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Contraseña',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.lock),
+                  ),
+                ),
+              )
             ),
+            SizedBox(height: 24),
 
             //Botón de inicio de sesión
-            ElevatedButton(
-              onPressed: () {
-                // Lógica de inicio de sesión
-              },
-              child: Text('Iniciar sesión'),
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 32,
+              //width: double.infinity,
+              child: ElevatedButton(
+                onPressed: (){
+                  // Lógica de inicio de sesión
+                },
+                child: Text('Iniciar sesión'),
+                ),
             ),
 
             //Botón de olvidé mi contraseña
-            ElevatedButton(
-              onPressed: () {
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 32,
+              //width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
                 // Lógica de olvidé mi contraseña
               },
               child: Text('Olvidé mi contraseña'),
+              )
             ),
-
+            
             //Botón de crear cuenta
-            ElevatedButton(
-              onPressed: () {
-                // Lógica de crear cuenta
-              },
-              child: Text('Crear cuenta'),
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 32,
+              //width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Lógica de crear cuenta
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => RegistroPage(),
+                    ),
+                  );
+                },
+                child: Text('Crear cuenta'),
+              ),
             ),
+            
           ],
         ),
       ),
     );
   }
+
 }

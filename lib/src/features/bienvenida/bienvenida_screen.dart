@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/features/login/login_screen.dart'; // Importa la pantalla de inicio de sesión
+import 'package:recla/src/features/login/login_screen.dart';
+//import 'package:recla/src/features/registro/registro.dart'; // Importa la pantalla de inicio de sesión
 
 class BienvenidaScreen extends StatelessWidget {
   const BienvenidaScreen({super.key});
@@ -11,6 +12,8 @@ class BienvenidaScreen extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),
+        //registro
+        //MaterialPageRoute(builder: (context) => RegistroPage()),
       );
     });
 
