@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/ecommerce/vista_ecommerce.dart';
 import 'package:recla/src/features/registro/registro.dart';
 //registo
 
@@ -98,6 +99,11 @@ class LoginScreen extends StatelessWidget {
               //width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => VistaEcommerce(),
+                    ),
+                  );
                 // Lógica de olvidé mi contraseña
               },
               child: Text('Olvidé mi contraseña'),

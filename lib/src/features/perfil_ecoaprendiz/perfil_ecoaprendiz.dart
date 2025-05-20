@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/ecommerce/vista_ecommerce.dart';
 
 class PerfilEcoAprendizPage extends StatelessWidget {
   const PerfilEcoAprendizPage({super.key});
@@ -139,8 +140,12 @@ class PerfilEcoAprendizPage extends StatelessWidget {
         onTap: (int index) {
           switch (index) {
             case 0:
-              Navigator.pushNamed(context, '/home');
-              break;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => VistaEcommerce()),
+              );
+            //Navigator.pushNamed(context, '/home');
+            //break;
             case 1:
               Navigator.pushNamed(context, '/eco-aprender');
               break;
