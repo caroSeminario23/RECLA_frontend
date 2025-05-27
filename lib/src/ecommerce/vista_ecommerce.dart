@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/clasificacion/tabla_clasificacion.dart';
 import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
 import 'package:recla/src/formulario_pub/formulario_publicacion.dart';
+import 'package:recla/src/publicacion/vista_publicacion.dart';
 //import 'package:recla/src/publicacion/vista_publicacion.dart';
 
 class VistaEcommerce extends StatefulWidget {
@@ -55,7 +57,7 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => FormularioPublicacion()),
               );
-              // Aquí puedes implementar la lógica de búsqueda
+              
             },
           ),
         ],
@@ -194,7 +196,7 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
           ),
           BottomNavigationBarItem(
             icon: Image(
-              image: AssetImage('assets/images/icono_monedas.png'),
+              image: AssetImage('assets/images/icono_cofre.png'),
               width: 30,
               height: 30,
             ),
@@ -230,13 +232,17 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
         onTap: (index) {
           switch (index) {
             case 0:
-              Navigator.pushNamed(context, '/home');
+              //Navigator.pushNamed(context, '/home');
               break;
             case 1:
               Navigator.pushNamed(context, '/eco-aprender');
               break;
             case 2:
-              Navigator.pushNamed(context, '/logros');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TablaClasificacion()),
+              );
+              //Navigator.pushNamed(context, '/logros');
               break;
             case 3:
               Navigator.pushNamed(context, '/chat');
@@ -255,15 +261,17 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
 
   Widget buildProductCard(Map<String, dynamic> producto) {
     return GestureDetector(
-      /*onTap: () {
+      onTap: () {
+        //Navegar a la pantalla de detalles del producto (VistaPublicacion)
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => VistaPublicacion(), // Aquí puedes cambiar a la página de detalles del producto
+            builder: (context) => VistaPublicacion(), 
           ),
         );
-      },*/
-      
+        
+        print('Producto seleccionado: ${producto['nombre']}');
+      },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/clasificacion/tabla_clasificacion.dart';
 import 'package:recla/src/ecommerce/vista_ecommerce.dart';
 
 class PerfilEcoAprendizPage extends StatelessWidget {
@@ -102,7 +103,7 @@ class PerfilEcoAprendizPage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Image(
-              image: AssetImage('assets/images/icono_monedas.png'),
+              image: AssetImage('assets/images/icono_cofre.png'),
               width: 30,
               height: 30,
             ),
@@ -150,7 +151,11 @@ class PerfilEcoAprendizPage extends StatelessWidget {
               Navigator.pushNamed(context, '/eco-aprender');
               break;
             case 2:
-              Navigator.pushNamed(context, '/logros');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TablaClasificacion()),
+              );
+              //Navigator.pushNamed(context, '/logros');
               break;
             case 3:
               Navigator.pushNamed(context, '/chat');

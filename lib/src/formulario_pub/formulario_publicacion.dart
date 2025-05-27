@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/ecommerce/vista_ecommerce.dart';
 import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
+import 'package:recla/src/clasificacion/tabla_clasificacion.dart';
 
 
 class FormularioPublicacion extends StatefulWidget {
@@ -170,7 +172,7 @@ class _FormularioPublicacionState extends State<FormularioPublicacion> {
           ),
           BottomNavigationBarItem(
             icon: Image(
-              image: AssetImage('assets/images/icono_monedas.png'),
+              image: AssetImage('assets/images/icono_cofre.png'),
               width: 30,
               height: 30,
             ),
@@ -206,13 +208,19 @@ class _FormularioPublicacionState extends State<FormularioPublicacion> {
         onTap: (index) {
           switch (index) {
             case 0:
-              Navigator.pushNamed(context, '/home');
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => VistaEcommerce()),
+              );
+              //Navigator.pushNamed(context, '/home');
               break;
             case 1:
               Navigator.pushNamed(context, '/eco-aprender');
               break;
             case 2:
-              Navigator.pushNamed(context, '/logros');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TablaClasificacion()),
+              );
               break;
             case 3:
               Navigator.pushNamed(context, '/chat');

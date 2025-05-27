@@ -90,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                 onPressed: (){
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) => VistaPublicacion(),
+                      builder: (_) => VistaEcommerce(),
                     ),
                   );
                   // Lógica de inicio de sesión

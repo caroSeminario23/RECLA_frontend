@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/clasificacion/tabla_clasificacion.dart';
+import 'package:recla/src/ecommerce/vista_ecommerce.dart';
 import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
 
 class VistaPublicacion extends StatefulWidget {
@@ -42,26 +44,46 @@ class _VistaPublicacionState extends State<VistaPublicacion> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            //poner precio
+            //Precio y ubicación
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween, // Distribuye los elementos a los extremos
                 children: [
-                  Text(
-                    'Precio: S/ 100',
-                    style: TextStyle(fontSize: 20, color: Colors.green),
+                  // Lado izquierdo: Precio e imagen
+                  Row(
+                    children: [
+                      Text(
+                        'Precio: 100',
+                        style: TextStyle(fontSize: 20, color: Colors.green),
+                      ),
+                      const SizedBox(width: 4),
+                      Image.asset(
+                        'assets/images/icono_monedas.png', 
+                        width: 24, // Ancho de la imagen
+                        height: 24, // Alto de la imagen
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 8),
-                  // Imagen al lado del texto
-                  Image.asset(
-                    'assets/images/logo_principal.png', // Reemplaza con la ruta de tu imagen
-                    width: 24, // Ancho de la imagen
-                    height: 24, // Alto de la imagen
+                  // Lado derecho: Imagen y texto
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.location_on,
+                        color: Colors.green, // Color del icono
+                        size: 24, // Tamaño del icono
+                      ),
+                      
+                      const SizedBox(width: 4),
+                      Text(
+                        'San Miguel',
+                        style: TextStyle(fontSize: 20, color: Colors.green),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-
             //chips de tipos de material
             Padding(
               padding: const EdgeInsets.all(12.0),
@@ -88,9 +110,7 @@ class _VistaPublicacionState extends State<VistaPublicacion> {
                             isSelected
                                 ? const Color.fromRGBO(165, 214, 167, 1)
                                 : const Color.fromARGB(255, 238, 238, 238),
-                        /*shape: StadiumBorder(
-                          side: BorderSide(color: Colors.grey.shade400),
-                        ),*/
+                        
                       );
                     }).toList(),
               ),
@@ -104,29 +124,71 @@ class _VistaPublicacionState extends State<VistaPublicacion> {
                 width: double.infinity,
                 height: 150,
                 decoration: BoxDecoration(
+                  
                   color: Colors.grey.withOpacity(0.6),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
 
-            //Botón de compra
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10.0,
               ), // Margen de 10 en cada lado
               child: SizedBox(
-                width:
-                    double
-                        .infinity, // Ocupa todo el ancho disponible dentro del Padding
+                width: double.infinity, // Ocupa todo el ancho disponible dentro del Padding
                 child: ElevatedButton(
                   onPressed: () {
-                    // Acción al presionar el botón
+                    // Mostrar el cuadro de diálogo de confirmación
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Confirmar compra'),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Text('¿Estás seguro de realizar esta compra?'),
+                              SizedBox(height: 8), // Espacio entre los textos
+                              Text('Ganarás 100 XP'),
+                            ],
+                          ),
+                          actions: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween, // Distribuye los botones a los extremos
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop(); // Cerrar el diálogo
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.red, // Color del botón "Cancelar"
+                                  ),
+                                  child: const Text('Cancelar'),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    // Acción al confirmar la compra
+                                    Navigator.of(context).pop(); // Cerrar el diálogo
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Compra realizada con éxito')),
+                                    );
+                                  },
+                                  child: const Text('Aceptar'),
+                                ),
+                              ],
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    // Aquí puedes agregar la lógica para realizar la compra
                   },
                   child: const Text('Comprar'),
                 ),
               ),
             ),
+            
             //Comentarios
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -165,7 +227,7 @@ class _VistaPublicacionState extends State<VistaPublicacion> {
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundImage: AssetImage(
-                      'assets/images/logo_principal.png',
+                      'assets/images/foto_perfil_ejemplo.png',
                     ),
                   ),
                   title: Row(
@@ -214,7 +276,7 @@ class _VistaPublicacionState extends State<VistaPublicacion> {
           ),
           BottomNavigationBarItem(
             icon: Image(
-              image: AssetImage('assets/images/icono_monedas.png'),
+              image: AssetImage('assets/images/icono_cofre.png'),
               width: 30,
               height: 30,
             ),
@@ -250,13 +312,20 @@ class _VistaPublicacionState extends State<VistaPublicacion> {
         onTap: (index) {
           switch (index) {
             case 0:
-              Navigator.pushNamed(context, '/home');
+              //Navigator.pushNamed(context, '/home');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => VistaEcommerce()),
+              );
               break;
             case 1:
               Navigator.pushNamed(context, '/eco-aprender');
               break;
             case 2:
-              Navigator.pushNamed(context, '/logros');
+              Navigator.push(context
+              , MaterialPageRoute(builder: (context) => TablaClasificacion()),
+              );
+              //Navigator.pushNamed(context, '/logros');
               break;
             case 3:
               Navigator.pushNamed(context, '/chat');
