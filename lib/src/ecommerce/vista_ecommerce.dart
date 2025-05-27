@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
+//import 'package:recla/src/publicacion/vista_publicacion.dart';
 
 class VistaEcommerce extends StatefulWidget {
   const VistaEcommerce({super.key});
@@ -37,6 +38,7 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
       'precio': 300,
       'imagen': 'assets/images/logo_principal.png',
     },
+    
   ];
 
   @override
@@ -98,7 +100,7 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
                             : selectedFilters.remove(label);
                       });
                     },
-                    selectedColor: Colors.green[200],
+                    selectedColor: const Color.fromRGBO(165, 214, 167, 1),
                     showCheckmark: false,
                   );
                 }).toList(),
@@ -238,9 +240,15 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
 
   Widget buildProductCard(Map<String, dynamic> producto) {
     return GestureDetector(
-      onTap: () {
-        print('Producto seleccionado: ${producto['nombre']}');
-      },
+      /*onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => VistaPublicacion(), // Aquí puedes cambiar a la página de detalles del producto
+          ),
+        );
+      },*/
+      
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Column(

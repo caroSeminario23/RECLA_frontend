@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/ecommerce/vista_ecommerce.dart';
 import 'package:recla/src/features/registro/registro.dart';
+import 'package:recla/src/publicacion/vista_publicacion.dart';
 //registo
 
 class LoginScreen extends StatelessWidget {
@@ -87,6 +88,11 @@ class LoginScreen extends StatelessWidget {
               //width: double.infinity,
               child: ElevatedButton(
                 onPressed: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => VistaPublicacion(),
+                    ),
+                  );
                   // Lógica de inicio de sesión
                 },
                 child: Text('Iniciar sesión'),
