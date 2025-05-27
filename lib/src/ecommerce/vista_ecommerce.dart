@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
+import 'package:recla/src/formulario_pub/formulario_publicacion.dart';
 //import 'package:recla/src/publicacion/vista_publicacion.dart';
 
 class VistaEcommerce extends StatefulWidget {
@@ -44,7 +45,21 @@ class _VistaEcommerceState extends State<VistaEcommerce> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('E-commerce')),
+      appBar: AppBar(
+        title: const Text('E-commerce'),
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => FormularioPublicacion()),
+              );
+              // Aquí puedes implementar la lógica de búsqueda
+            },
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
