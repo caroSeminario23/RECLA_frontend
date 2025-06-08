@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/clasificacion/tabla_clasificacion.dart';
-import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
-import 'package:recla/src/formulario_pub/formulario_publicacion.dart';
-import 'package:recla/src/publicacion/vista_publicacion.dart';
+import 'package:recla/src/others/clasificacion/tabla_clasificacion.dart';
+import 'package:recla/src/others/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
+import 'package:recla/src/others/formulario_pub/formulario_publicacion.dart';
+import 'package:recla/src/others/publicacion/vista_publicacion.dart';
 //import 'package:recla/src/publicacion/vista_publicacion.dart';
 
 class VistaEcommerce extends StatefulWidget {

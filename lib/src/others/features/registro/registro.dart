@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
+import 'package:recla/src/others/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
 
 class RegistroPage extends StatefulWidget {
   @override

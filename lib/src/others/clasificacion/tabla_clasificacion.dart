@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/ecommerce/vista_ecommerce.dart';
-import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
+import 'package:recla/src/others/ecommerce/vista_ecommerce.dart';
+import 'package:recla/src/others/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
 
 class TablaClasificacion extends StatelessWidget {
   const TablaClasificacion({super.key});

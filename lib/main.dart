@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'theme/theme.dart';
 
-import 'package:recla/src/features/bienvenida/bienvenida_screen.dart'; //Importación del archivo de colores
+import 'package:recla/src/others/features/bienvenida/bienvenida_screen.dart'; //Importación del archivo de colores
 
 void main() {
   runApp(const MyApp());

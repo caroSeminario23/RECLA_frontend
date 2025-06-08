@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/features/login/login_screen.dart';
+import 'package:recla/src/others/features/login/login_screen.dart';
 //import 'package:recla/src/features/registro/registro.dart'; // Importa la pantalla de inicio de sesión
 
 class BienvenidaScreen extends StatelessWidget {

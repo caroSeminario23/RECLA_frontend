@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/clasificacion/tabla_clasificacion.dart';
-import 'package:recla/src/ecommerce/vista_ecommerce.dart';
-import 'package:recla/src/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
+import 'package:recla/src/others/clasificacion/tabla_clasificacion.dart';
+import 'package:recla/src/others/ecommerce/vista_ecommerce.dart';
+import 'package:recla/src/others/features/perfil_ecoaprendiz/perfil_ecoaprendiz.dart';
 
 class VistaPublicacion extends StatefulWidget {
   const VistaPublicacion({super.key});

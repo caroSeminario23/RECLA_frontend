@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/ecommerce/vista_ecommerce.dart';
-import 'package:recla/src/features/registro/registro.dart';
-import 'package:recla/src/publicacion/vista_publicacion.dart';
+import 'package:recla/src/others/ecommerce/vista_ecommerce.dart';
+import 'package:recla/src/others/features/registro/registro.dart';
+import 'package:recla/src/others/publicacion/vista_publicacion.dart';
 //registo
 
 class LoginScreen extends StatelessWidget {
