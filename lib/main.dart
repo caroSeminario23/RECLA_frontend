@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'theme/theme.dart';
 
 import 'package:recla/src/others/features/bienvenida/bienvenida_screen.dart'; //Importación del archivo de colores
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'RECLA',
       theme: AppTheme.lightTheme(),
       home: const BienvenidaScreen()
+      //home: const EstatusScreen()
     );
   }
 }
