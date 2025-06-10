@@ -21,11 +21,11 @@ class Login extends StatelessWidget {
             const Text(
               'BIENVENIDO',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 32,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 24), //Espacio entre el logo y el texto
+            SizedBox(height: 48), //Espacio entre el logo y el texto
             
             //Ingreso de email
             Align(
@@ -81,7 +81,7 @@ class Login extends StatelessWidget {
                 );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255,153,255,153), // Cambia el color del botón
+                  backgroundColor: const Color.fromARGB(255,208,232,216), // Cambia el color del botón
                   side: const BorderSide(color: Colors.green, width: 1.0),
                   elevation: 0, // Elimina la sombra del botón
                 ),
@@ -112,7 +112,7 @@ class Login extends StatelessWidget {
                 );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255,153,204,255), // Cambia el color del botón
+                  backgroundColor: const Color.fromARGB(255,192,233,250), // Cambia el color del botón
                   side: const BorderSide(color: Colors.blue, width: 1.0),
                   elevation: 0, // Elimina la sombra del botón
                 ),
@@ -143,7 +143,7 @@ class Login extends StatelessWidget {
                 );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255,255,153,153), // Cambia el color del botón
+                  backgroundColor: const Color.fromARGB(255,255,218,214), // Cambia el color del botón
                   side: const BorderSide(color: Colors.red, width: 1.0),
                   elevation: 0, // Elimina la sombra del botón
                 ),

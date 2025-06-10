@@ -3,7 +3,7 @@ import 'theme/theme.dart';
 
 import 'package:recla/src/others/features/bienvenida/bienvenida_screen.dart'; //Importación del archivo de colores
 import 'package:recla/src/platform/presentation/screens/login.dart';
-
+import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       title: 'RECLA',
       theme: AppTheme.lightTheme(),
       //home: const BienvenidaScreen()
-      home: const Login()
+      //home: const Login()
+      home: const PerfilEcoPagina(),
     );
   }
 }
