@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RECLA',
       theme: AppTheme.lightTheme(),
-      //home: const BienvenidaScreen()
+      home: const BienvenidaScreen()
       //home: const Login()
-      home: const PerfilEcoPagina(),
+      //home: const PerfilEcoPagina(),
     );
   }
 }

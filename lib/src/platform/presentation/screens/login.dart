@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 
 class Login extends StatelessWidget {
     const Login({super.key});
@@ -65,21 +66,21 @@ class Login extends StatelessWidget {
               width: MediaQuery.of(context).size.width - 32,
               //width: double.infinity,
               child: ElevatedButton(
-                /*onPressed: (){
+                onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      //builder: (_) => VistaEcommerce(),
+                      builder: (_) => PerfilEcoPagina(),
                     ),
                   );
-                  // Lógica de inicio de sesión
-                },*/
-                onPressed: () {
+                // Lógica de olvidé mi contraseña
+                },
+                /*onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                     content: Text('Funcionalidad en desarrollo'),
                     ),
                 );
-                },
+                },*/
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255,208,232,216), // Cambia el color del botón
                   side: const BorderSide(color: Colors.green, width: 1.0),
