@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppTypography {
-  static const String primaryFont = 'ShareTechMono';
-  static const String secondaryFont = 'Silkscreen';
+  static const String primaryFont = 'Silkscreen';
+  static const String secondaryFont = 'ShareTechMono';
 
   static const TextStyle displayLarge = TextStyle(
     fontFamily: primaryFont,
