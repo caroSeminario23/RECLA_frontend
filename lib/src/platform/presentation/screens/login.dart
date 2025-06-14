@@ -1,150 +1,201 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
+import '../../data/fake/usuario_fake.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            //Logo superior
-            Image.asset(
-              'assets/images/logos/recla_logo1.png',
-              width: 100,
-              height: 100,
-            ),
-
-            //Texto de bienvenida
-            Text('BIENVENIDO', style: Theme.of(context).textTheme.displaySmall),
-            SizedBox(height: 48), //Espacio entre el logo y el texto
-            //Ingreso de email
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                //width: MediaQuery.of(context).size.width - 30,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Correo electrónico',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.email_outlined),
+        child: SingleChildScrollView(
+          // para evitar overflow en pantallas pequeñas
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Logo superior
+                  Image.asset(
+                    'assets/images/logos/recla_logo1.png',
+                    width: 100,
+                    height: 100,
                   ),
-                ),
-              ),
-            ),
-            SizedBox(height: 12),
+                  const SizedBox(height: 16),
 
-            //Ingreso de contraseña
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                //width: MediaQuery.of(context).size.width - 30,
-                child: TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Contraseña',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock_outline),
+                  // Texto de bienvenida
+                  Text(
+                    'BIENVENIDO',
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
-                ),
-              ),
-            ),
-            SizedBox(height: 24),
+                  const SizedBox(height: 48),
 
-            //Botón de inicio de sesión
-            SizedBox(
-              width: MediaQuery.of(context).size.width - 30,
-              //width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (_) => PerfilEcoPagina()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      Theme.of(context)
-                          .colorScheme
-                          .secondaryContainer, // Cambia el color del botón
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.outline,
-                    width: 1.0,
-                  ),
-                  elevation: 0, // Elimina la sombra del botón
-                ),
-                child: Text(
-                  'Iniciar sesión'.toLowerCase().replaceFirst(
-                    'i',
-                    'I',
-                  ), // Capitaliza la primera letra
-                ),
-              ),
-            ),
-
-            //Botón de olvidé mi contraseña
-            SizedBox(
-              width: MediaQuery.of(context).size.width - 30,
-              //width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Funcionalidad en desarrollo'),
+                  // Ingreso de email
+                  TextFormField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: 'Correo electrónico',
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.email_outlined),
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.tertiaryContainer, // Cambia el color del botón
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.onTertiaryFixedVariant,
-                    width: 1.0,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Ingresa tu correo';
+                      }
+                      final regex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+                      if (!regex.hasMatch(value)) {
+                        return 'Correo no válido';
+                      }
+                      return null;
+                    },
                   ),
-                  elevation: 0, // Elimina la sombra del botón
-                ),
-                child: Text(
-                  'Olvidé mi contraseña'.toLowerCase().replaceFirst(
-                    'o',
-                    'O',
-                  ), // Capitaliza la primera letra
-                ),
-              ),
-            ),
+                  const SizedBox(height: 12),
 
-            //Botón de crear cuenta
-            SizedBox(
-              width: MediaQuery.of(context).size.width - 30,
-              //width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Funcionalidad en desarrollo'),
+                  // Ingreso de contraseña con ojito
+                  TextFormField(
+                    controller: _passwordController,
+                    obscureText: _obscurePassword,
+                    decoration: InputDecoration(
+                      labelText: 'Contraseña',
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(Icons.lock_outline),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.errorContainer, // Cambia el color del botón
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.onErrorContainer,
-                    width: 1.0,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Ingresa tu contraseña';
+                      }
+                      if (value.length < 6) {
+                        return 'Debe tener al menos 6 caracteres';
+                      }
+                      return null;
+                    },
                   ),
-                  elevation: 0, // Elimina la sombra del botón
-                ),
-                child: Text(
-                  'Crear cuenta'.toLowerCase().replaceFirst(
-                    'c',
-                    'C',
-                  ), // Capitaliza la primera letra
-                ),
+                  const SizedBox(height: 24),
+
+                  // Botón de iniciar sesión
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          final email = _emailController.text.trim();
+                          final password = _passwordController.text;
+
+                          if (fakeUsers[email] == password) {
+                            // Si las credenciales son válidas, redirigir
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const PerfilEcoPagina(),
+                              ),
+                            );
+                          } else {
+                            // Mostrar error si no coinciden
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Correo o contraseña incorrectos',
+                                ),
+                                backgroundColor: Colors.redAccent,
+                              ),
+                            );
+                          }
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondaryContainer,
+                        side: BorderSide(
+                          color: Theme.of(context).colorScheme.outline,
+                          width: 1.0,
+                        ),
+                        elevation: 0,
+                      ),
+                      child: const Text('Iniciar sesión'),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // Botón de olvidé mi contraseña
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Funcionalidad en desarrollo'),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            Theme.of(context).colorScheme.tertiaryContainer,
+                        side: BorderSide(
+                          color:
+                              Theme.of(
+                                context,
+                              ).colorScheme.onTertiaryFixedVariant,
+                          width: 1.0,
+                        ),
+                        elevation: 0,
+                      ),
+                      child: const Text('Olvidé mi contraseña'),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // Botón de crear cuenta
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Funcionalidad en desarrollo'),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            Theme.of(context).colorScheme.errorContainer,
+                        side: BorderSide(
+                          color: Theme.of(context).colorScheme.onErrorContainer,
+                          width: 1.0,
+                        ),
+                        elevation: 0,
+                      ),
+                      child: const Text('Crear cuenta'),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
