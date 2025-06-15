@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 
 class TipoPuntaje extends StatelessWidget {
-  final String imagenItem;
-  final String puntaje;
+  final int puntaje;
   final int tipoPuntaje;
 
   const TipoPuntaje({
     Key? key,
-    required this.imagenItem,
     required this.puntaje,
     required this.tipoPuntaje,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final String imgPuntaje = switch (tipoPuntaje) {
+      1 => '../../../../assets/images/icons/racha.png',
+      2 => '../../../../assets/images/icons/experiencia.png',
+      3 => '../../../../assets/images/icons/ptos_app.png',
+      4 => '../../../../assets/images/icons/ptos_municipales.png',
+      _ => '',
+    };
+
     final String formatoPuntaje = switch (tipoPuntaje) {
       1 => 'días',
       2 => 'EXP',
-      3 => 'PTOS',
+      3 || 4 => 'PTOS',
       _ => '',
     };
 
@@ -25,7 +31,7 @@ class TipoPuntaje extends StatelessWidget {
       mainAxisAlignment:
           MainAxisAlignment.center, // Centra el contenido horizontalmente
       children: [
-        Image.asset(imagenItem, width: 30, height: 30),
+        Image.asset(imgPuntaje, width: 30, height: 30),
         const SizedBox(width: 2), // Espacio entre la imagen y el texto
         Text(
           '$puntaje $formatoPuntaje',

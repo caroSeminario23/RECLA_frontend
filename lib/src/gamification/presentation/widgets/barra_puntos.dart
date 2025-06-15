@@ -1,36 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/gamification/presentation/widgets/puntos.dart';
 
 class BarraPuntos extends StatelessWidget {
-  final String imagenItem;
-  final String puntaje;
-  final int tipoPuntaje;
+  final int racha;
+  final int exp;
+  final int ptosApp;
+  final int ptosMunicipales;
 
   const BarraPuntos({
     Key? key,
-    required this.imagenItem,
-    required this.puntaje,
-    required this.tipoPuntaje,
+    required this.racha,
+    required this.exp,
+    required this.ptosApp,
+    required this.ptosMunicipales,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final String formatoPuntaje = switch (tipoPuntaje) {
-      1 => 'días',
-      2 => 'EXP',
-      3 => 'PTOS',
-      _ => '',
-    };
-
     return Row(
       mainAxisAlignment:
-          MainAxisAlignment.center, // Centra el contenido horizontalmente
+          MainAxisAlignment.center,
       children: [
-        Image.asset(imagenItem, width: 30, height: 30),
-        const SizedBox(width: 2), // Espacio entre la imagen y el texto
-        Text(
-          '$puntaje $formatoPuntaje',
-          style: Theme.of(context).textTheme.labelMedium,
-        ),
+        TipoPuntaje(
+          puntaje: racha, 
+          tipoPuntaje: 1),
+        
+        const SizedBox(height: 8), // Espacio entre los tipos de puntaje
+        
+        TipoPuntaje(
+          puntaje: exp, 
+          tipoPuntaje: 2),
+        
+        const SizedBox(height: 8), // Espacio entre los tipos de puntaje
+
+        TipoPuntaje(
+          puntaje: ptosApp, 
+          tipoPuntaje: 3),
+
+        const SizedBox(height: 8), // Espacio entre los tipos de puntaje
+        
+        TipoPuntaje(
+          puntaje: ptosMunicipales, 
+          tipoPuntaje: 4)
       ],
     );
   }

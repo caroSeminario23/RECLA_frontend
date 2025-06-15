@@ -37,15 +37,16 @@ class Estatus extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.teal, width: 2),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.primary,
+              width: 2,
+            ),
           ),
           child: CircleAvatar(
             backgroundImage: NetworkImage(imgAprendiz),
             backgroundColor: Colors.transparent,
           ),
         ),
-        //CircleAvatar(radius: 50, backgroundImage: NetworkImage(imgAprendiz)),
-        //const SizedBox(height: 5),
 
         // ESPACIO ENTRE AVATAR Y TEXTO
 
