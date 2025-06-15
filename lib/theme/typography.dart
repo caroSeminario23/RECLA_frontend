@@ -49,14 +49,14 @@ class AppTypography {
 
   // Estilo con Silkscreen (segundo font)
   static const TextStyle titleLarge = TextStyle(
-    fontFamily: secondaryFont,
+    fontFamily: primaryFont,
     fontSize: 22,
     fontWeight: FontWeight.normal,
     height: 28 / 22
   );
 
   static const TextStyle titleMedium = TextStyle(
-    fontFamily: secondaryFont,
+    fontFamily: primaryFont,
     fontSize: 16,
     fontWeight: FontWeight.normal,
     height: 24 / 16,
@@ -64,7 +64,7 @@ class AppTypography {
   );
 
   static const TextStyle titleSmall = TextStyle(
-    fontFamily: secondaryFont,
+    fontFamily: primaryFont,
     fontSize: 14,
     fontWeight: FontWeight.normal,
     height: 20 / 14,

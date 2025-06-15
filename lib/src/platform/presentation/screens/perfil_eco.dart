@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/platform/presentation/widgets/foto_perfil.dart';
+import '../../data/fake/datos_usuario_fake.dart';
+import '../widgets/foto_perfil.dart';
 import 'package:recla/src/gamification/presentation/widgets/puntos.dart';
 
 
 class PerfilEcoPagina extends StatelessWidget {
   const PerfilEcoPagina({super.key});
+  
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -38,11 +40,11 @@ class PerfilEcoPagina extends StatelessWidget {
           children: [
             //Llamada a la imagen de perfil
             Center(
-              child: PerfilExp(
-                imagePath: 'assets/images/foto_perfil_ejemplo.png',
-                experience: 1500,
-                name: 'Eliana Verde',
-                district: 'San Isidro',
+              child: PresentacionUsuario(
+                fotoAprendiz: datosUsuarioFake['foto_aprendiz'],
+                experiencia: datosUsuarioFake['experiencia'],
+                nombre: datosUsuarioFake['nombre'],
+                distrito: datosUsuarioFake['distrito'],
               ),
             ),
             Center(

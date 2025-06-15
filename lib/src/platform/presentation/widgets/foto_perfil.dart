@@ -1,85 +1,82 @@
 import 'package:flutter/material.dart';
 
-class PerfilExp extends StatelessWidget {
-  final String imagePath;
-  final int experience;
-  final String name;
-  final String district;
+class PresentacionUsuario extends StatelessWidget {
+  final String fotoAprendiz;
+  final int experiencia;
+  final String nombre;
+  final String distrito;
 
-  const PerfilExp({
-    super.key,
-    required this.imagePath,
-    required this.experience,
-    required this.name,
-    required this.district,
-  });
+  const PresentacionUsuario({
+    Key? key,
+    required this.fotoAprendiz,
+    required this.experiencia,
+    required this.nombre,
+    required this.distrito,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Imagen y cuadro de experiencia
         Stack(
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.center,
+          clipBehavior: Clip.none, // Para permitir que sobresalga
           children: [
-            // Imagen circular
-            /*Container(
-                width: 150, // Ajusta el tamaño del contenedor
-                height: 150, // Ajusta el tamaño del contenedor
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, // Forma circular
-                    border: Border.all(
-                    color: const Color.fromARGB(255, 36, 106, 75), // Color del borde
-                    width: 4, // Grosor del borde
-                    ),
+            // Foto de usuario
+            Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.primary,
+                  width: 2,
                 ),
-                child: CircleAvatar(
-                    radius: 70, // Tamaño de la imagen
-                    backgroundImage: AssetImage(imagePath), // Ruta de la imagen
-                ),
-            ),*/
-            CircleAvatar(
-              radius: 70, // Tamaño de la imagen
-              backgroundImage: AssetImage(imagePath), // Ruta de la imagen
+              ),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(fotoAprendiz),
+                backgroundColor: Colors.transparent,
+              ),
             ),
-            // Cuadro de experiencia
+
+            // Botón de experiencia (ligeramente debajo de la imagen)
             Positioned(
-              bottom: 0,
+              bottom: -12, // valor negativo para que sobresalga
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 36, 106, 75), // Color del cuadro
-                  borderRadius: BorderRadius.circular(30), // Bordes redondeados
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 4,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
                 child: Text(
-                  '$experience EXP',
-                  style: const TextStyle(
-                    color: Colors.white, // Color del texto
-                    fontWeight: FontWeight.bold,
+                  '$experiencia EXP',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 12), // Espacio entre la imagen y el texto
-        // Nombres
+
+        const SizedBox(height: 20), // espacio ajustado por el botón flotante
+        // Nombre debajo
+        Text(nombre, style: Theme.of(context).textTheme.headlineSmall),
+
+        // Distrito debajo
         Text(
-          name,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 4), // Espacio entre el nombre y el distrito
-        // Distrito
-        Text(
-          'Distrito: $district',
-          style: const TextStyle(
-            fontSize: 14,
-          ),
+          'Distrito: $distrito',
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ],
     );
