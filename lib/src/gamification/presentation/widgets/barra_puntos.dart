@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TipoPuntaje extends StatelessWidget {
+class BarraPuntos extends StatelessWidget {
   final String imagenItem;
   final String puntaje;
   final int tipoPuntaje;
 
-  const TipoPuntaje({
+  const BarraPuntos({
     Key? key,
     required this.imagenItem,
     required this.puntaje,

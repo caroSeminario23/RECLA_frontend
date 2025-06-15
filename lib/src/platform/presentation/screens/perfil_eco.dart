@@ -3,12 +3,11 @@ import '../../data/fake/datos_usuario_fake.dart';
 import '../widgets/foto_perfil.dart';
 import 'package:recla/src/gamification/presentation/widgets/puntos.dart';
 
-
 class PerfilEcoPagina extends StatelessWidget {
   const PerfilEcoPagina({super.key});
-  
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('PERFIL ECOAPRENDIZ'),
@@ -16,19 +15,11 @@ class PerfilEcoPagina extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart),
-            /*onPressed: () {
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => FormularioPublicacion()),
-              );
-              
-            },*/
             onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                    content: Text('Funcionalidad en desarrollo'),
-                    ),
-                );
-                },
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Funcionalidad en desarrollo')),
+              );
+            },
           ),
         ],
       ),
@@ -38,7 +29,7 @@ class PerfilEcoPagina extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            //Llamada a la imagen de perfil
+            //DATOS DEL USUARIO
             Center(
               child: PresentacionUsuario(
                 fotoAprendiz: datosUsuarioFake['foto_aprendiz'],
@@ -49,24 +40,24 @@ class PerfilEcoPagina extends StatelessWidget {
             ),
             Center(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center, 
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ImagenConTexto(
-                  imagePath: 'assets/images/icono_racha.png',
-                  text: '15 días',
+                  TipoPuntaje(
+                    imagenItem: 'assets/images/icono_racha.png',
+                    puntaje: '15 días',
                   ),
-                  ImagenConTexto(
-                  imagePath: 'assets/images/icono_experiencia.png',
-                  text: '150 EXP',
+                  TipoPuntaje(
+                    imagenItem: 'assets/images/icono_experiencia.png',
+                    puntaje: '150 EXP',
                   ),
-                  ImagenConTexto(
-                    imagePath: 'assets/images/icono_monedas.png',
-                    text: '1000 PTS',)
+                  TipoPuntaje(
+                    imagenItem: 'assets/images/icono_monedas.png',
+                    puntaje: '1000 PTS',
+                  ),
                 ],
-              )
+              ),
             ),
-            
-          ]
+          ],
         ),
       ),
     );
