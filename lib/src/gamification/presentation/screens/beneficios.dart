@@ -41,7 +41,7 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
 
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        child: Center(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -280,9 +280,9 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Funcionalidad en desarrollo'),
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const CertificadosPagina(),
                           ),
                         );
                       },

@@ -13,10 +13,10 @@ class TipoPuntaje extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String imgPuntaje = switch (tipoPuntaje) {
-      1 => '../../../../assets/images/icons/racha.png',
-      2 => '../../../../assets/images/icons/experiencia.png',
-      3 => '../../../../assets/images/icons/ptos_app.png',
-      4 => '../../../../assets/images/icons/ptos_municipales.png',
+      1 => 'assets/images/icons/racha.png',
+      2 => 'assets/images/icons/experiencia.png',
+      3 => 'assets/images/icons/ptos_app.png',
+      4 => 'assets/images/icons/ptos_municipales.png',
       _ => '',
     };
 

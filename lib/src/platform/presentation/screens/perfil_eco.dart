@@ -48,7 +48,7 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
         actions: [
           IconButton(
             icon: Image.asset(
-              '../../../../assets/images/icons/ar_stickers.png',
+              'assets/images/icons/ar_stickers.png',
               width: 24,
               height: 24,
             ),
@@ -63,6 +63,8 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
 
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        child: SingleChildScrollView(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -175,6 +177,8 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
             ),
           ],
         ),
+        ),
+
       ),
 
       bottomNavigationBar: NavBar(

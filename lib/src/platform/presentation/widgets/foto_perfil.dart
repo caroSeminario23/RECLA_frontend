@@ -30,7 +30,7 @@ class PresentacionUsuario extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: Theme.of(context).colorScheme.primary,
-                  width: 2,
+                  width: 4,
                 ),
               ),
               child: CircleAvatar(

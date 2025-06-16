@@ -13,11 +13,11 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final iconPaths = [
-      '../../../../assets/images/icons/ventas.png',
-      '../../../../assets/images/icons/beneficios.png',
-      '../../../../assets/images/icons/clasificacion.png',
-      '../../../../assets/images/icons/chats.png',
-      '../../../../assets/images/icons/perfil.png',
+      'assets/images/icons/ventas.png',
+      'assets/images/icons/beneficios.png',
+      'assets/images/icons/clasificacion.png',
+      'assets/images/icons/chats.png',
+      'assets/images/icons/perfil.png',
     ];
 
     return Container(
