@@ -139,7 +139,7 @@ class _LoginState extends State<Login> {
                       child: const Text('Iniciar sesión'),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 5),
 
                   // Botón de olvidé mi contraseña
                   SizedBox(
@@ -167,7 +167,7 @@ class _LoginState extends State<Login> {
                       child: const Text('Olvidé mi contraseña'),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 5),
 
                   // Botón de crear cuenta
                   SizedBox(

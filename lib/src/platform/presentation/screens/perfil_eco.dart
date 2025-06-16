@@ -6,11 +6,28 @@ import 'package:recla/src/gamification/presentation/widgets/barra_certificados.d
 import 'package:recla/src/gamification/presentation/widgets/barra_insignias.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_productos.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_puntos.dart';
+import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 import '../../data/fake/datos_usuario_fake.dart';
 import '../widgets/foto_perfil.dart';
 
-class PerfilEcoPagina extends StatelessWidget {
+class PerfilEcoPagina extends StatefulWidget {
   const PerfilEcoPagina({super.key});
+
+  @override
+  State<PerfilEcoPagina> createState() => _PerfilEcoPaginaState();
+}
+
+class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
+  int opcionSeleccionada = 5; // Perfil es la opción 5
+
+  void _onItemTapped(int index) {
+    setState(() {
+      opcionSeleccionada = index;
+    });
+
+    // Aquí puedes hacer navegación con Navigator si lo necesitas:
+    // if (index == 0) Navigator.push(...);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -133,29 +150,32 @@ class PerfilEcoPagina extends StatelessWidget {
             const SizedBox(
               height: 20,
             ), // Espacio entre el divider y las insignias
-
             // BOTÓN PARA EDITAR PERFIL
             Align(
               alignment: Alignment.centerRight,
               child: FloatingActionButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Funcionalidad en desarrollo')),
+                    const SnackBar(
+                      content: Text('Funcionalidad en desarrollo'),
+                    ),
                   );
                 },
                 mini: true,
                 backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
-                child: const Icon(Icons.edit, size: 18,),
+                foregroundColor:
+                    Theme.of(context).colorScheme.onPrimaryContainer,
+                child: const Icon(Icons.edit, size: 18),
               ),
             ),
           ],
         ),
-        
-        
       ),
 
-      
+      bottomNavigationBar: NavBar(
+        opcionSeleccionada: opcionSeleccionada,
+        onItemTapped: _onItemTapped,
+      ),
     );
   }
 }
