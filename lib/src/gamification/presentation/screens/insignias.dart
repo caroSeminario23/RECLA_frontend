@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/gamification/data/fake/certificados_portal_fake.dart';
+import 'package:recla/src/gamification/data/fake/coleccion_insignias.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
-import 'package:recla/src/gamification/presentation/widgets/grupo_certificados.dart';
+import 'package:recla/src/gamification/presentation/widgets/coleccion_insignias.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 
@@ -13,7 +13,7 @@ class InsigniasPagina extends StatefulWidget {
 }
 
 class _InsigniasPaginaState extends State<InsigniasPagina> {
-  int opcionSeleccionada = 1; 
+  int opcionSeleccionada = 1;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -54,7 +54,16 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [GrupoCertificados(certificados: certificadosPortalFake)],
+            children: [
+              ColeccionInsignias(
+                nombreColeccion: 'COMPRADOR CONSCIENTE',
+                nivel: 1,
+                insignias:
+                    coleccionInsigniasFake
+                        .map((insignia) => insignia['url'] ?? '')
+                        .toList(),
+              ),
+            ],
           ),
         ),
       ),

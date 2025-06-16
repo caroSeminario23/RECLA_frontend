@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 import 'package:recla/src/gamification/presentation/screens/certificados.dart';
+import 'package:recla/src/gamification/presentation/screens/insignias.dart';
 
 class BeneficiosPagina extends StatefulWidget {
   const BeneficiosPagina({super.key});
@@ -244,7 +245,7 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (_) => const CertificadosPagina(),
+                            builder: (_) => const InsigniasPagina(),
                           ),
                         );
                       },
