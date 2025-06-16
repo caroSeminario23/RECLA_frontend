@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
+import 'package:recla/src/gamification/presentation/screens/certificados.dart';
 
 class BeneficiosPagina extends StatefulWidget {
   const BeneficiosPagina({super.key});
@@ -205,9 +206,7 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                         );
                       },
                       icon: const Icon(Icons.redeem_outlined),
-                      label: const Text(
-                        'Recursos educativos',
-                      ),
+                      label: const Text('Recursos educativos'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
                             Theme.of(
@@ -243,9 +242,9 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Funcionalidad en desarrollo'),
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const CertificadosPagina(),
                           ),
                         );
                       },
@@ -288,9 +287,7 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                         );
                       },
                       icon: const Icon(Icons.redeem_outlined),
-                      label: const Text(
-                        'Certificados',
-                      ),
+                      label: const Text('Certificados'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
                             Theme.of(
@@ -383,9 +380,7 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                         );
                       },
                       icon: const Icon(Icons.redeem_outlined),
-                      label: const Text(
-                        'Personaliza tu mascota',
-                      ),
+                      label: const Text('Personaliza tu mascota'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
                             Theme.of(
