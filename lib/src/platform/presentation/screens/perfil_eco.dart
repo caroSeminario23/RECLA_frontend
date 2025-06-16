@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recla/src/gamification/data/fake/barra_puntos_fake.dart';
 import 'package:recla/src/gamification/data/fake/certificados_fake.dart';
 import 'package:recla/src/gamification/data/fake/insignias_fake.dart';
+import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_certificados.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_insignias.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_productos.dart';
@@ -18,15 +19,19 @@ class PerfilEcoPagina extends StatefulWidget {
 }
 
 class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
-  int opcionSeleccionada = 5; // Perfil es la opción 5
+  int opcionSeleccionada = 4; // Perfil es la opción 5
 
   void _onItemTapped(int index) {
     setState(() {
       opcionSeleccionada = index;
     });
 
-    // Aquí puedes hacer navegación con Navigator si lo necesitas:
-    // if (index == 0) Navigator.push(...);
+    // NAVEGACIÓN BASADA EN LA OPCIÓN SELECCIONADA
+    if (index == 1) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const BeneficiosPagina()));
+    }
   }
 
   @override
@@ -150,7 +155,6 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
             const SizedBox(
               height: 55,
             ), // Espacio entre el divider y las insignias
-
             // BOTÓN PARA EDITAR PERFIL
             Align(
               alignment: Alignment.centerRight,
