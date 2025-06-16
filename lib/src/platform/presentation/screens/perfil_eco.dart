@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/gamification/data/fake/barra_puntos_fake.dart';
+import 'package:recla/src/gamification/data/fake/insignias_fake.dart';
+import 'package:recla/src/gamification/presentation/widgets/barra_insignias.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_puntos.dart';
 import '../../data/fake/datos_usuario_fake.dart';
 import '../widgets/foto_perfil.dart';
@@ -52,10 +55,10 @@ class PerfilEcoPagina extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   BarraPuntos(
-                    racha: 15,
-                    exp: 150,
-                    ptosApp: 420,
-                    ptosMunicipales: 200,
+                    racha: barraPuntosFake['racha'],
+                    exp: barraPuntosFake['exp'],
+                    ptosApp: barraPuntosFake['ptosApp'],
+                    ptosMunicipales: barraPuntosFake['ptosMunicipales'],
                   ),
                 ],
               ),
@@ -64,11 +67,40 @@ class PerfilEcoPagina extends StatelessWidget {
             const SizedBox(
               height: 16,
             ), // Espacio entre el estatus y la imagen del puesto
+            
             // DIVIDER
             Divider(
               thickness: 2,
               color: Theme.of(context).colorScheme.outlineVariant,
             ),
+
+            const SizedBox(
+              height: 16,
+            ), // Espacio entre el divider y las insignias
+            
+            // INSIGNIAS DEL USUARIO
+            Center(
+              child: BarraInsignias(
+                insignias:
+                    barraInsigniasFake
+                        .map((insignia) => insignia['url'] ?? '')
+                        .toList(),
+              ),
+            ),
+
+            const SizedBox(
+              height: 16,
+            ), // Espacio entre el estatus y la imagen del puesto
+            
+            // DIVIDER
+            Divider(
+              thickness: 2,
+              color: Theme.of(context).colorScheme.outlineVariant,
+            ),
+
+            const SizedBox(
+              height: 16,
+            ), // Espacio entre el divider y las insignias
           ],
         ),
       ),
