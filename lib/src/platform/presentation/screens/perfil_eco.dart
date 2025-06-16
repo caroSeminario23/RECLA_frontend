@@ -25,7 +25,11 @@ class PerfilEcoPagina extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: Image.asset('../../../../assets/images/icons/ar_stickers.png', width: 24, height: 24),
+            icon: Image.asset(
+              '../../../../assets/images/icons/ar_stickers.png',
+              width: 24,
+              height: 24,
+            ),
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Funcionalidad en desarrollo')),
@@ -77,7 +81,7 @@ class PerfilEcoPagina extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 16,
+              height: 4,
             ), // Espacio entre el divider y las insignias
             // INSIGNIAS DEL USUARIO
             Center(
@@ -90,7 +94,7 @@ class PerfilEcoPagina extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 16,
+              height: 10,
             ), // Espacio entre el estatus y la imagen del puesto
             // DIVIDER
             Divider(
@@ -99,9 +103,8 @@ class PerfilEcoPagina extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 16,
+              height: 4,
             ), // Espacio entre el divider y las insignias
-            
             // CERTIFICADOS DEL USUARIO
             Center(
               child: BarraCertificados(
@@ -113,7 +116,7 @@ class PerfilEcoPagina extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 16,
+              height: 10,
             ), // Espacio entre el estatus y la imagen del puesto
             // DIVIDER
             Divider(
@@ -122,15 +125,37 @@ class PerfilEcoPagina extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 16,
+              height: 4,
+            ), // Espacio entre el divider y las insignias
+            // SECCIÓN DE PRODUCTOS
+            Center(child: BarraProductos()),
+
+            const SizedBox(
+              height: 20,
             ), // Espacio entre el divider y las insignias
 
-            // SECCIÓN DE PRODUCTOS
-            Center(
-              child: BarraProductos())
+            // BOTÓN PARA EDITAR PERFIL
+            Align(
+              alignment: Alignment.centerRight,
+              child: FloatingActionButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Funcionalidad en desarrollo')),
+                  );
+                },
+                mini: true,
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                child: const Icon(Icons.edit, size: 18,),
+              ),
+            ),
           ],
         ),
+        
+        
       ),
+
+      
     );
   }
 }
