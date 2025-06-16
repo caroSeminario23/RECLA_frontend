@@ -7,12 +7,12 @@ class PresentacionUsuario extends StatelessWidget {
   final String distrito;
 
   const PresentacionUsuario({
-    Key? key,
+    super.key,
     required this.fotoAprendiz,
     required this.experiencia,
     required this.nombre,
     required this.distrito,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

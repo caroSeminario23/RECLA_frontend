@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class BarraInsignias extends StatelessWidget {
-  final List<String> insignias;
+class BarraCertificados extends StatelessWidget {
+  final List<String> certificados;
 
-  const BarraInsignias({super.key, required this.insignias});
+  const BarraCertificados({super.key, required this.certificados});
 
   @override
   Widget build(BuildContext context) {
@@ -12,23 +12,23 @@ class BarraInsignias extends StatelessWidget {
       children: [
         // SUBTÍTULO CENTRADO
         Text(
-          'MIS INSIGNIAS',
+          'MIS CERTIFICADOS',
           style: Theme.of(context).textTheme.titleMedium,
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 8),
 
-        // LISTA HORIZONTAL DE INSIGNIAS
+        // LISTA HORIZONTAL DE CERTIFICADOS
         SizedBox(
-          height: 60, // altura fija para que no se recorte
+          height: 70, // altura fija para que no se recorte
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children:
-                  insignias.map((url) {
+                  certificados.map((url) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: Image.network(url, width: 50, height: 50),
+                      child: Image.network(url, height: 60),
                     );
                   }).toList(),
             ),

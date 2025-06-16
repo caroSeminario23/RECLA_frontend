@@ -8,12 +8,12 @@ class BarraPuntos extends StatelessWidget {
   final int ptosMunicipales;
 
   const BarraPuntos({
-    Key? key,
+    super.key,
     required this.racha,
     required this.exp,
     required this.ptosApp,
     required this.ptosMunicipales,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

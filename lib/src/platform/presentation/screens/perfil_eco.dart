@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/gamification/data/fake/barra_puntos_fake.dart';
+import 'package:recla/src/gamification/data/fake/certificados_fake.dart';
 import 'package:recla/src/gamification/data/fake/insignias_fake.dart';
+import 'package:recla/src/gamification/presentation/widgets/barra_certificados.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_insignias.dart';
+import 'package:recla/src/gamification/presentation/widgets/barra_productos.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_puntos.dart';
 import '../../data/fake/datos_usuario_fake.dart';
 import '../widgets/foto_perfil.dart';
@@ -22,7 +25,7 @@ class PerfilEcoPagina extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.sticky_note_2_outlined),
+            icon: Image.asset('../../../../assets/images/icons/ar_stickers.png', width: 24, height: 24),
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Funcionalidad en desarrollo')),
@@ -67,7 +70,6 @@ class PerfilEcoPagina extends StatelessWidget {
             const SizedBox(
               height: 16,
             ), // Espacio entre el estatus y la imagen del puesto
-            
             // DIVIDER
             Divider(
               thickness: 2,
@@ -77,7 +79,6 @@ class PerfilEcoPagina extends StatelessWidget {
             const SizedBox(
               height: 16,
             ), // Espacio entre el divider y las insignias
-            
             // INSIGNIAS DEL USUARIO
             Center(
               child: BarraInsignias(
@@ -91,7 +92,6 @@ class PerfilEcoPagina extends StatelessWidget {
             const SizedBox(
               height: 16,
             ), // Espacio entre el estatus y la imagen del puesto
-            
             // DIVIDER
             Divider(
               thickness: 2,
@@ -101,6 +101,33 @@ class PerfilEcoPagina extends StatelessWidget {
             const SizedBox(
               height: 16,
             ), // Espacio entre el divider y las insignias
+            
+            // CERTIFICADOS DEL USUARIO
+            Center(
+              child: BarraCertificados(
+                certificados:
+                    barraCertificadosFake
+                        .map((certificado) => certificado['url'] ?? '')
+                        .toList(),
+              ),
+            ),
+
+            const SizedBox(
+              height: 16,
+            ), // Espacio entre el estatus y la imagen del puesto
+            // DIVIDER
+            Divider(
+              thickness: 2,
+              color: Theme.of(context).colorScheme.outlineVariant,
+            ),
+
+            const SizedBox(
+              height: 16,
+            ), // Espacio entre el divider y las insignias
+
+            // SECCIÓN DE PRODUCTOS
+            Center(
+              child: BarraProductos())
           ],
         ),
       ),

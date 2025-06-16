@@ -7,12 +7,12 @@ class Estatus extends StatelessWidget {
   final int puestoAprendiz;
 
   const Estatus({
-    Key? key,
+    super.key,
     required this.imgAprendiz,
     required this.nombreAprendiz,
     required this.expAprendiz,
     required this.puestoAprendiz,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

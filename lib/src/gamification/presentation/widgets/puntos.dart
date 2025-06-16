@@ -5,10 +5,10 @@ class TipoPuntaje extends StatelessWidget {
   final int tipoPuntaje;
 
   const TipoPuntaje({
-    Key? key,
+    super.key,
     required this.puntaje,
     required this.tipoPuntaje,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
