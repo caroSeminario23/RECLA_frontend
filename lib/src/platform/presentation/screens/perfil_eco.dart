@@ -148,8 +148,9 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
             Center(child: BarraProductos()),
 
             const SizedBox(
-              height: 20,
+              height: 55,
             ), // Espacio entre el divider y las insignias
+
             // BOTÓN PARA EDITAR PERFIL
             Align(
               alignment: Alignment.centerRight,
@@ -161,7 +162,7 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
                     ),
                   );
                 },
-                mini: true,
+                mini: false,
                 backgroundColor: Theme.of(context).colorScheme.primaryContainer,
                 foregroundColor:
                     Theme.of(context).colorScheme.onPrimaryContainer,
