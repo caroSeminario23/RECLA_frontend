@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/gamification/data/fake/certificados_portal_fake.dart';
+import 'package:recla/src/gamification/data/fake/recursos_educativos_fake.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
 import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
-import 'package:recla/src/gamification/presentation/widgets/grupo_certificados.dart';
+import 'package:recla/src/gamification/presentation/widgets/grupo_re.dart';
 import 'package:recla/src/platform/presentation/screens/compra_productos.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 
-class CertificadosPagina extends StatefulWidget {
-  const CertificadosPagina({super.key});
+class RecursosEducativosPagina extends StatefulWidget {
+  const RecursosEducativosPagina({super.key});
 
   @override
-  State<CertificadosPagina> createState() => _CertificadosPaginaState();
+  State<RecursosEducativosPagina> createState() =>
+      _RecursosEducativosPaginaState();
 }
 
-class _CertificadosPaginaState extends State<CertificadosPagina> {
+class _RecursosEducativosPaginaState extends State<RecursosEducativosPagina> {
   int opcionSeleccionada = 1; // Beneficios es la opción 1
 
   void _onItemTapped(int index) {
@@ -45,7 +46,7 @@ class _CertificadosPaginaState extends State<CertificadosPagina> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'CERTIFICADOS',
+          'RECURSOS EDUCATIVOS',
           style: Theme.of(context).textTheme.titleMedium,
         ),
         automaticallyImplyLeading: false,
@@ -64,7 +65,7 @@ class _CertificadosPaginaState extends State<CertificadosPagina> {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [GrupoCertificados(certificados: certificadosPortalFake)],
+            children: [GrupoREducativos(recursos: recursosEducativosFake)],
           ),
         ),
       ),

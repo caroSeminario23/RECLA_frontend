@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
+import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'package:recla/src/platform/data/fake/datos_compra_productos.dart';
 import 'package:recla/src/platform/data/fake/datos_tipo.dart';
 import 'package:recla/src/platform/data/fake/datos_tipo_material.dart';
@@ -30,6 +32,14 @@ class _CompraProductosState extends State<CompraProductos> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const PerfilEcoPagina()));
+    } else if (index == 2) {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()),
+      );
+    } else if (index == 1) {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const BeneficiosPagina()),
+      );
     }
   }
 

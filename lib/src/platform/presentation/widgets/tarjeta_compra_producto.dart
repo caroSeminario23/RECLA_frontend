@@ -46,7 +46,7 @@ class TarjetaCompraProductos extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 12.0),
+                const SizedBox(height: 8.0),
                 Text(
                   nombreProducto,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(

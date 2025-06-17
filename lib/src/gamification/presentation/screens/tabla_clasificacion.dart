@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recla/src/gamification/data/fake/tabla_clasificacion_fake.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
 import 'package:recla/src/gamification/presentation/widgets/posiciones_tabla.dart';
+import 'package:recla/src/platform/presentation/screens/compra_productos.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 
@@ -9,7 +10,8 @@ class TablaClasificacionPagina extends StatefulWidget {
   const TablaClasificacionPagina({super.key});
 
   @override
-  State<TablaClasificacionPagina> createState() => _TablaClasificacionPaginaState();
+  State<TablaClasificacionPagina> createState() =>
+      _TablaClasificacionPaginaState();
 }
 
 class _TablaClasificacionPaginaState extends State<TablaClasificacionPagina> {
@@ -29,6 +31,10 @@ class _TablaClasificacionPaginaState extends State<TablaClasificacionPagina> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const BeneficiosPagina()));
+    } else if (index == 0) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const CompraProductos()));
     }
   }
 
@@ -52,12 +58,13 @@ class _TablaClasificacionPaginaState extends State<TablaClasificacionPagina> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // TÍTULO PRINCIPAL
-              Text('RESULTADOS',
-                  style: Theme.of(context).textTheme.titleLarge),
-              
+              Text('RESULTADOS', style: Theme.of(context).textTheme.titleLarge),
+
               // ESPACIO ENTRE TÍTULO Y SUBTÍTULO
-              Text('${tablaFake['inicio']} AL ${tablaFake['fin']}',
-                  style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                '${tablaFake['inicio']} AL ${tablaFake['fin']}',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
 
               // ESPACIO ENTRE TÍTULO Y LÍNEA DIVISORA
               const SizedBox(height: 7),
@@ -71,9 +78,8 @@ class _TablaClasificacionPaginaState extends State<TablaClasificacionPagina> {
               // ESPACIO ENTRE LÍNEA Y POSICIONES
               const SizedBox(height: 10),
 
-              PosicionesTabla(posiciones: posicionesFake)
-              
-              ],
+              PosicionesTabla(posiciones: posicionesFake),
+            ],
           ),
         ),
       ),
