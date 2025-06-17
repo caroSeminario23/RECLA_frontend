@@ -9,6 +9,7 @@ import 'package:recla/src/gamification/presentation/widgets/barra_insignias.dart
 import 'package:recla/src/gamification/presentation/widgets/barra_productos.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_puntos.dart';
 import 'package:recla/src/platform/data/fake/datos_usuario_fake.dart';
+import 'package:recla/src/platform/presentation/screens/compra_productos.dart';
 import 'package:recla/src/platform/presentation/widgets/foto_perfil.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 //import '../../data/fake/datos_usuario_fake.dart';
@@ -38,6 +39,10 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
+    } else if (index == 0) {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const CompraProductos()),
+      );
     }
   }
 

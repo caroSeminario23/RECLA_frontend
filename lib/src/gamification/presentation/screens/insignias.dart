@@ -3,6 +3,7 @@ import 'package:recla/src/gamification/data/fake/coleccion_insignias.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
 import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'package:recla/src/gamification/presentation/widgets/coleccion_insignias.dart';
+import 'package:recla/src/platform/presentation/screens/compra_productos.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 
@@ -27,9 +28,13 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
         context,
       ).push(MaterialPageRoute(builder: (_) => const PerfilEcoPagina()));
     } else if (index == 2) {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()),
+      );
+    } else if (index == 0) {
       Navigator.of(
         context,
-      ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
+      ).push(MaterialPageRoute(builder: (_) => const CompraProductos()));
     }
   }
 
@@ -139,7 +144,7 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
                 insignias: seccionInsignias4['insignias'],
                 tipoContador: seccionInsignias4['tipoContador'],
                 valorContador: seccionInsignias4['valorContador'],
-              )
+              ),
             ],
           ),
         ),

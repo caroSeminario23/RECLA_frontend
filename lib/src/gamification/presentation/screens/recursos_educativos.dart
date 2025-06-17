@@ -3,6 +3,7 @@ import 'package:recla/src/gamification/data/fake/recursos_educativos_fake.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
 import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'package:recla/src/gamification/presentation/widgets/grupo_re.dart';
+import 'package:recla/src/platform/presentation/screens/compra_productos.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 
@@ -31,6 +32,10 @@ class _RecursosEducativosPaginaState extends State<RecursosEducativosPagina> {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()),
       );
+    } else if (index == 0) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const CompraProductos()));
     }
   }
 
