@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/gamification/data/fake/certificados_portal_fake.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
+import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'package:recla/src/gamification/presentation/widgets/grupo_certificados.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
@@ -13,7 +14,7 @@ class CertificadosPagina extends StatefulWidget {
 }
 
 class _CertificadosPaginaState extends State<CertificadosPagina> {
-  int opcionSeleccionada = 1; // Perfil es la opción 5
+  int opcionSeleccionada = 1; // Beneficios es la opción 1
 
   void _onItemTapped(int index) {
     setState(() {
@@ -25,6 +26,10 @@ class _CertificadosPaginaState extends State<CertificadosPagina> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const PerfilEcoPagina()));
+    } else if (index == 2) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
     }
   }
 

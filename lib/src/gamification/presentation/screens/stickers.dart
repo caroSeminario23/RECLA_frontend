@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:recla/src/gamification/data/fake/coleccion_insignias.dart';
+import 'package:recla/src/gamification/data/fake/stickers_fake.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
 import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
-import 'package:recla/src/gamification/presentation/widgets/coleccion_insignias.dart';
+import 'package:recla/src/gamification/presentation/widgets/seccion_stickers.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 
-class InsigniasPagina extends StatefulWidget {
-  const InsigniasPagina({super.key});
+class StickersPagina extends StatefulWidget {
+  const StickersPagina({super.key});
 
   @override
-  State<InsigniasPagina> createState() => _InsigniasPaginaState();
+  State<StickersPagina> createState() => _StickersPaginaState();
 }
 
-class _InsigniasPaginaState extends State<InsigniasPagina> {
-  int opcionSeleccionada = 1;
+class _StickersPaginaState extends State<StickersPagina> {
+  int opcionSeleccionada = 1; // Beneficios es la opción 1
 
   void _onItemTapped(int index) {
     setState(() {
@@ -39,10 +39,7 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          'INSIGNIAS',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        title: Text('STICKERS', style: Theme.of(context).textTheme.titleMedium),
         automaticallyImplyLeading: false,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_outlined),
@@ -70,12 +67,9 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
               const SizedBox(height: 1),
 
               // SECCIÓN 1
-              ColeccionInsignias(
-                nombreColeccion: seccionInsignias1['nombreColeccion'],
-                nivel: seccionInsignias1['nivel'],
-                insignias: seccionInsignias1['insignias'],
-                tipoContador: seccionInsignias1['tipoContador'],
-                valorContador: seccionInsignias1['valorContador'],
+              ColeccionStickers(
+                nombreColeccion: seccionStickers1['nombreColeccion'],
+                stickers: seccionStickers1['stickers'],
               ),
 
               // ESPACIO ENTRE SECCIÓN 1 Y LÍNEA DIVISORA
@@ -91,15 +85,12 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
               const SizedBox(height: 1),
 
               // SECCIÓN 2
-              ColeccionInsignias(
-                nombreColeccion: seccionInsignias2['nombreColeccion'],
-                nivel: seccionInsignias2['nivel'],
-                insignias: seccionInsignias2['insignias'],
-                tipoContador: seccionInsignias2['tipoContador'],
-                valorContador: seccionInsignias2['valorContador'],
+              ColeccionStickers(
+                nombreColeccion: seccionStickers2['nombreColeccion'],
+                stickers: seccionStickers2['stickers'],
               ),
 
-              // ESPACIO ENTRE SECCIÓN 2 Y LÍNEA DIVISORA
+              // ESPACIO ENTRE SECCIÓN 1 Y LÍNEA DIVISORA
               const SizedBox(height: 12),
 
               // LÍNEA DIVISORA
@@ -108,38 +99,14 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
                 color: Theme.of(context).colorScheme.outlineVariant,
               ),
 
-              // ESPACIO ENTRE LÍNEA Y SECCIÓN 3
+              // ESPACIO ENTRE LÍNEA Y SECCIÓN 2
               const SizedBox(height: 1),
 
               // SECCIÓN 3
-              ColeccionInsignias(
-                nombreColeccion: seccionInsignias3['nombreColeccion'],
-                nivel: seccionInsignias3['nivel'],
-                insignias: seccionInsignias3['insignias'],
-                tipoContador: seccionInsignias3['tipoContador'],
-                valorContador: seccionInsignias3['valorContador'],
+              ColeccionStickers(
+                nombreColeccion: seccionStickers3['nombreColeccion'],
+                stickers: seccionStickers3['stickers'],
               ),
-
-              // ESPACIO ENTRE SECCIÓN 3 Y LÍNEA DIVISORA
-              const SizedBox(height: 12),
-
-              // LÍNEA DIVISORA
-              Divider(
-                thickness: 2,
-                color: Theme.of(context).colorScheme.outlineVariant,
-              ),
-
-              // ESPACIO ENTRE LÍNEA Y SECCIÓN 4
-              const SizedBox(height: 1),
-
-              // SECCIÓN 4
-              ColeccionInsignias(
-                nombreColeccion: seccionInsignias4['nombreColeccion'],
-                nivel: seccionInsignias4['nivel'],
-                insignias: seccionInsignias4['insignias'],
-                tipoContador: seccionInsignias4['tipoContador'],
-                valorContador: seccionInsignias4['valorContador'],
-              )
             ],
           ),
         ),
