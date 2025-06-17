@@ -4,6 +4,7 @@ import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 import 'package:recla/src/gamification/presentation/screens/certificados.dart';
 import 'package:recla/src/gamification/presentation/screens/insignias.dart';
 import 'package:recla/src/gamification/presentation/screens/stickers.dart';
+import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 
 class BeneficiosPagina extends StatefulWidget {
   const BeneficiosPagina({super.key});
@@ -25,6 +26,10 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const PerfilEcoPagina()));
+    } else if (index == 2) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
     }
   }
 

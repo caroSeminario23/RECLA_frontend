@@ -3,13 +3,16 @@ import 'package:recla/src/gamification/data/fake/barra_puntos_fake.dart';
 import 'package:recla/src/gamification/data/fake/certificados_fake.dart';
 import 'package:recla/src/gamification/data/fake/insignias_fake.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
+import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_certificados.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_insignias.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_productos.dart';
 import 'package:recla/src/gamification/presentation/widgets/barra_puntos.dart';
+import 'package:recla/src/platform/data/fake/datos_usuario_fake.dart';
+import 'package:recla/src/platform/presentation/widgets/foto_perfil.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
-import '../../data/fake/datos_usuario_fake.dart';
-import '../widgets/foto_perfil.dart';
+//import '../../data/fake/datos_usuario_fake.dart';
+//import '../widgets/foto_perfil.dart';
 
 class PerfilEcoPagina extends StatefulWidget {
   const PerfilEcoPagina({super.key});
@@ -31,6 +34,10 @@ class _PerfilEcoPaginaState extends State<PerfilEcoPagina> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const BeneficiosPagina()));
+    } else if (index == 2) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
     }
   }
 

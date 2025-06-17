@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/gamification/data/fake/stickers_fake.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
+import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'package:recla/src/gamification/presentation/widgets/seccion_stickers.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
@@ -25,6 +26,10 @@ class _StickersPaginaState extends State<StickersPagina> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const PerfilEcoPagina()));
+    } else if (index == 2) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
     }
   }
 

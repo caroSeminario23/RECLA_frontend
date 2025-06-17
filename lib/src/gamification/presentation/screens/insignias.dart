@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/gamification/data/fake/coleccion_insignias.dart';
 import 'package:recla/src/gamification/presentation/screens/beneficios.dart';
+import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
 import 'package:recla/src/gamification/presentation/widgets/coleccion_insignias.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
@@ -25,6 +26,10 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
       Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const PerfilEcoPagina()));
+    } else if (index == 2) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
     }
   }
 
