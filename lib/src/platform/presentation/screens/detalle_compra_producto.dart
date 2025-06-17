@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recla/src/platform/data/fake/datos_compra_productos.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
+import 'package:recla/src/platform/presentation/widgets/boton_precio.dart';
 import 'package:recla/src/platform/presentation/widgets/botones_tipo.dart';
 import 'package:recla/src/platform/presentation/widgets/botones_tipo_material.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
@@ -120,8 +121,17 @@ class _DetalleCompraProductoState extends State<DetalleCompraProducto> {
                   ],
                 ),
               ),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: BotonPrecio(
+                  precio: producto['precio'].toString() // Asegúrate de que el precio sea un String,
+                ),
+              ),
+              
             ],
           ),
+          
+          
         ),
       ),
 
