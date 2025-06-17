@@ -5,6 +5,7 @@ import 'package:recla/src/gamification/presentation/screens/certificados.dart';
 import 'package:recla/src/gamification/presentation/screens/insignias.dart';
 import 'package:recla/src/gamification/presentation/screens/stickers.dart';
 import 'package:recla/src/gamification/presentation/screens/tabla_clasificacion.dart';
+import 'package:recla/src/gamification/presentation/screens/recursos_educativos.dart';
 
 class BeneficiosPagina extends StatefulWidget {
   const BeneficiosPagina({super.key});
@@ -27,9 +28,9 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
         context,
       ).push(MaterialPageRoute(builder: (_) => const PerfilEcoPagina()));
     } else if (index == 2) {
-      Navigator.of(
-        context,
-      ).push(MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()));
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const TablaClasificacionPagina()),
+      );
     }
   }
 
@@ -206,9 +207,9 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Funcionalidad en desarrollo'),
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const RecursosEducativosPagina(),
                           ),
                         );
                       },
