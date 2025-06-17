@@ -13,7 +13,7 @@ class CertificadosPagina extends StatefulWidget {
 }
 
 class _CertificadosPaginaState extends State<CertificadosPagina> {
-  int opcionSeleccionada = 1; // Perfil es la opción 5
+  int opcionSeleccionada = 1; // Beneficios es la opción 1
 
   void _onItemTapped(int index) {
     setState(() {

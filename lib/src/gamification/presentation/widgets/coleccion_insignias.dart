@@ -32,11 +32,6 @@ class ColeccionInsignias extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // ESPACIO ENTRE EL MARGEN IZQUIERDO Y EL TEXTO
-            /*const SizedBox(
-              width: 60,
-            ), // Espacio entre el margen izquierdo y el texto
-            */
             // SUBTÍTULO CENTRADO
             Text(
               nombreColeccion,

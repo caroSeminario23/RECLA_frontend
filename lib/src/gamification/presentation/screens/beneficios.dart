@@ -3,6 +3,7 @@ import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/navbar.dart';
 import 'package:recla/src/gamification/presentation/screens/certificados.dart';
 import 'package:recla/src/gamification/presentation/screens/insignias.dart';
+import 'package:recla/src/gamification/presentation/screens/stickers.dart';
 
 class BeneficiosPagina extends StatefulWidget {
   const BeneficiosPagina({super.key});
@@ -336,9 +337,9 @@ class _BeneficiosPaginaState extends State<BeneficiosPagina> {
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Funcionalidad en desarrollo'),
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const StickersPagina(),
                           ),
                         );
                       },
