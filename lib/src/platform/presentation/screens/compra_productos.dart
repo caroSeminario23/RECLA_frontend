@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recla/src/platform/data/fake/datos_compra_productos.dart';
 import 'package:recla/src/platform/data/fake/datos_tipo.dart';
 import 'package:recla/src/platform/data/fake/datos_tipo_material.dart';
+import 'package:recla/src/platform/presentation/screens/detalle_compra_producto.dart';
 import 'package:recla/src/platform/presentation/screens/perfil_eco.dart';
 import 'package:recla/src/platform/presentation/widgets/botones_tipo.dart';
 import 'package:recla/src/platform/presentation/widgets/botones_tipo_material.dart';
@@ -93,12 +94,31 @@ class _CompraProductosState extends State<CompraProductos> {
                           itemCount: datosCompraProductos.length,
                           itemBuilder: (context, index) {
                             final producto = datosCompraProductos[index];
-                            return TarjetaCompraProductos(
+                            return InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => DetalleCompraProducto(
+                              id: producto['id'], // Pasar el ID del producto
+                            ),
+                          ),
+                        );
+                      },
+                      child: TarjetaCompraProductos(
+                        fotoProducto: producto['foto_producto'] as String,
+                        nombreProducto: producto['nombre_producto'] as String,
+                        tipo: producto['tipo'] as int,
+                        precio: producto['precio'] as int,
+                      ),
+                    );
+
+
+                            /*return TarjetaCompraProductos(
                               fotoProducto: producto['foto_producto'] as String,
                               nombreProducto: producto['nombre_producto'] as String,
                               tipo: producto['tipo'] as int,
                               precio: producto['precio'] as int,
-                            );
+                            );*/
                           },
                         ),
                       ),
@@ -109,7 +129,7 @@ class _CompraProductosState extends State<CompraProductos> {
         bottomNavigationBar: NavBar(
         opcionSeleccionada: opcionSeleccionada,
         onItemTapped: _onItemTapped,
-      ),
+        ),
     );
   }
 }
