@@ -55,14 +55,86 @@ class _InsigniasPaginaState extends State<InsigniasPagina> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ColeccionInsignias(
-                nombreColeccion: 'COMPRADOR CONSCIENTE',
-                nivel: 1,
-                insignias:
-                    coleccionInsigniasFake
-                        .map((insignia) => insignia['url'] ?? '')
-                        .toList(),
+              // LÍNEA DIVISORA
+              Divider(
+                thickness: 2,
+                color: Theme.of(context).colorScheme.outlineVariant,
               ),
+
+              // ESPACIO ENTRE LÍNEA Y SECCIÓN 1
+              const SizedBox(height: 1),
+
+              // SECCIÓN 1
+              ColeccionInsignias(
+                nombreColeccion: seccionInsignias1['nombreColeccion'],
+                nivel: seccionInsignias1['nivel'],
+                insignias: seccionInsignias1['insignias'],
+                tipoContador: seccionInsignias1['tipoContador'],
+                valorContador: seccionInsignias1['valorContador'],
+              ),
+
+              // ESPACIO ENTRE SECCIÓN 1 Y LÍNEA DIVISORA
+              const SizedBox(height: 12),
+
+              // LÍNEA DIVISORA
+              Divider(
+                thickness: 2,
+                color: Theme.of(context).colorScheme.outlineVariant,
+              ),
+
+              // ESPACIO ENTRE LÍNEA Y SECCIÓN 2
+              const SizedBox(height: 1),
+
+              // SECCIÓN 2
+              ColeccionInsignias(
+                nombreColeccion: seccionInsignias2['nombreColeccion'],
+                nivel: seccionInsignias2['nivel'],
+                insignias: seccionInsignias2['insignias'],
+                tipoContador: seccionInsignias2['tipoContador'],
+                valorContador: seccionInsignias2['valorContador'],
+              ),
+
+              // ESPACIO ENTRE SECCIÓN 2 Y LÍNEA DIVISORA
+              const SizedBox(height: 12),
+
+              // LÍNEA DIVISORA
+              Divider(
+                thickness: 2,
+                color: Theme.of(context).colorScheme.outlineVariant,
+              ),
+
+              // ESPACIO ENTRE LÍNEA Y SECCIÓN 3
+              const SizedBox(height: 1),
+
+              // SECCIÓN 3
+              ColeccionInsignias(
+                nombreColeccion: seccionInsignias3['nombreColeccion'],
+                nivel: seccionInsignias3['nivel'],
+                insignias: seccionInsignias3['insignias'],
+                tipoContador: seccionInsignias3['tipoContador'],
+                valorContador: seccionInsignias3['valorContador'],
+              ),
+
+              // ESPACIO ENTRE SECCIÓN 3 Y LÍNEA DIVISORA
+              const SizedBox(height: 12),
+
+              // LÍNEA DIVISORA
+              Divider(
+                thickness: 2,
+                color: Theme.of(context).colorScheme.outlineVariant,
+              ),
+
+              // ESPACIO ENTRE LÍNEA Y SECCIÓN 4
+              const SizedBox(height: 1),
+
+              // SECCIÓN 4
+              ColeccionInsignias(
+                nombreColeccion: seccionInsignias4['nombreColeccion'],
+                nivel: seccionInsignias4['nivel'],
+                insignias: seccionInsignias4['insignias'],
+                tipoContador: seccionInsignias4['tipoContador'],
+                valorContador: seccionInsignias4['valorContador'],
+              )
             ],
           ),
         ),
